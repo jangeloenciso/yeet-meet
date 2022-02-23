@@ -5,7 +5,7 @@ from selenium.webdriver.common.by import By
 import time, os
 from dotenv import load_dotenv
 
-def start(meet_link):
+def start(meet_link, MAIL_ADDRESS, PASSWORD):
     load_dotenv()
 
     opt = Options()
@@ -77,8 +77,8 @@ def start(meet_link):
         driver.find_element(By.XPATH, '//*[@id="ow3"]/div[1]/div/div[9]/div[3]/div[10]/div[2]/div/div[7]/span/button').click()
     
     # assign email id and password
-    MAIL_ADDRESS = os.getenv('MAIL_ADDRESS')
-    PASSWORD = os.getenv('PASSWORD')
+    # MAIL_ADDRESS = os.getenv('MAIL_ADDRESS')
+    # PASSWORD = os.getenv('PASSWORD')
     
     # login to Google account
     Glogin(MAIL_ADDRESS, PASSWORD)
