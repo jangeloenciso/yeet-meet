@@ -18,7 +18,7 @@ def start(meet_link):
         "profile.default_content_setting_values.geolocation": 0,
         "profile.default_content_setting_values.notifications": 1
     })
-    driver = webdriver.Chrome(ChromeDriverManager().install())
+    driver = webdriver.Chrome('./driver/chromedriver.exe')
 
     def Glogin(mail_address, password):
         # Login Page
