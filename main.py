@@ -1,4 +1,4 @@
-from script import *
+from chrome import *
 import getpass
 
 MAIL_ADDRESS =  input("Email: ")
