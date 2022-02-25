@@ -6,6 +6,7 @@ from selenium_stealth import stealth
 import time
 import geckodriver_autoinstaller
 from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
+import undetected_chromedriver.v2 as uc
 
 def chrome(meet_link, MAIL_ADDRESS, PASSWORD):
     opt = Options()
