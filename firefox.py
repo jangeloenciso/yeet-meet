@@ -6,27 +6,17 @@ from selenium_stealth import stealth
 import time
 import geckodriver_autoinstaller
 from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
-import undetected_chromedriver.v2 as uc
 
-def chrome(meet_link, MAIL_ADDRESS, PASSWORD):
-    opt = Options()
-    opt.add_argument('--disable-blink-features=AutomationControlled')
-    opt.add_argument('--start-maximized')
-    opt.add_experimental_option("prefs", {
-        "profile.default_content_setting_values.media_stream_mic": 1,
-        "profile.default_content_setting_values.media_stream_camera": 1,
-        "profile.default_content_setting_values.geolocation": 0,
-        "profile.default_content_setting_values.notifications": 1
-    })
-    driver = webdriver.Chrome('./driver/chromedriver.exe')
-    stealth(driver,
-        languages=["en-US", "en"],
-        vendor="Google Inc.",
-        platform="Win32",
-        webgl_vendor="Intel Inc.",
-        renderer="Intel Iris OpenGL Engine",
-        fix_hairline=True,
-        )
+def firefox(meet_link, MAIL_ADDRESS, PASSWORD):
+    # profile = webdriver.FirefoxProfile(
+    # '/Users/<user name>/Library/Application Support/Firefox/Profiles/xxxxx.default-release')
+
+    # profile.set_preference("dom.webdriver.enabled", False)
+    # profile.set_preference('useAutomationExtension', False)
+    # profile.update_preferences()
+    # desired = DesiredCapabilities.FIREFOX
+
+    driver = webdriver.Firefox()
 
     def Glogin(mail_address, password):
         # Login Page
@@ -83,10 +73,6 @@ def chrome(meet_link, MAIL_ADDRESS, PASSWORD):
     def leaveCall():
         print("leave")
         driver.find_element(By.XPATH, '//*[@id="ow3"]/div[1]/div/div[9]/div[3]/div[10]/div[2]/div/div[7]/span/button').click()
-    
-    # assign email id and password
-    # MAIL_ADDRESS = os.getenv('MAIL_ADDRESS')
-    # PASSWORD = os.getenv('PASSWORD')
     
     # login to Google account
     Glogin(MAIL_ADDRESS, PASSWORD)
